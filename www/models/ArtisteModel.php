@@ -14,7 +14,7 @@ class ArtisteModel extends Database
   {
     // ---- TODO : Commenter ce bout de code ----
     return $this->getMany(
-      "SELECT * FROM artistes ORDER BY nom ASC LIMIT $offset, $limit",
+      "SELECT * FROM artiste ORDER BY nom ASC LIMIT $offset, $limit",
       "ArtisteModel"
     );
   }
@@ -26,7 +26,7 @@ class ArtisteModel extends Database
   {
     // ---- TODO : Commenter ce bout de code ----
     return $this->getSingle(
-      "SELECT * FROM artistes WHERE id = $id",
+      "SELECT * FROM artiste WHERE id = $id",
       "ArtisteModel"
     );
   }
@@ -42,9 +42,9 @@ class ArtisteModel extends Database
 
     // ---- TODO : Commenter ce bout de code ----
     return $this->insert(
-      "INSERT INTO artistes ($keys) VALUES ('$values')",
+      "INSERT INTO artiste ($keys) VALUES ('$values')",
       "ArtisteModel",
-      "SELECT * FROM artistes"
+      "SELECT * FROM artiste"
     );
   }
 
@@ -62,10 +62,10 @@ class ArtisteModel extends Database
 
     // ---- TODO : Commenter ce bout de code ----
     return $this->update(
-      "UPDATE artistes SET $values WHERE id = $id",
+      "UPDATE artiste SET $values WHERE id = $id",
       "ArtisteModel",
-      "SELECT id FROM artistes WHERE id=$id",
-      "SELECT * FROM artistes WHERE id=$id"
+      "SELECT id FROM artiste WHERE id=$id",
+      "SELECT * FROM artiste WHERE id=$id"
     );
   }
 
@@ -76,8 +76,8 @@ class ArtisteModel extends Database
   {
     // ---- TODO : Commenter ce bout de code ----
     return $this->delete(
-      "DELETE FROM artistes WHERE id=$id",
-      "SELECT id FROM artistes WHERE id=$id"
+      "DELETE FROM artiste WHERE id=$id",
+      "SELECT id FROM artiste WHERE id=$id"
     );
   }
 
