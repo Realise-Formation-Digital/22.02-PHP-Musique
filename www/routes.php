@@ -2,13 +2,13 @@
 
 // ---- TODO : Commenter ce bout de code, qu'est-ce qu'il recherche ? ----
 require_once __DIR__ . "/controllers/BaseController.php";
-require_once __DIR__ . "/controllers/UserController.php";
+require_once __DIR__ . "/controllers/ArtistController.php";
 
 // ---- TODO : Commenter ce bout de code ----
 $routes = [
-  "/api/users/list" => ['GET', 'UserController', 'getList'],
-  "/api/users/get" => ['GET', 'UserController', 'get'],
-  "/api/users/add" => ['POST', 'UserController', 'store'],
-  "/api/users/update" => ['PUT', 'UserController', 'update'],
-  "/api/users/remove" => ['DELETE', 'UserController', 'destroy'],
+  "/api/artists/list" => ['GET', 'ArtistController', 'getList'],
+  "/api/artists/get" => ['GET', 'ArtistController', 'get'],
+  "/api/artists/add" => ['POST', 'ArtistController', 'store'],
+  "/api/artists/update" => ['PUT', 'ArtistController', 'update'],
+  "/api/artists/remove" => ['DELETE', 'ArtistController', 'destroy'],
 ];
