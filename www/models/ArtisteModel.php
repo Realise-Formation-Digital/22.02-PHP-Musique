@@ -6,6 +6,7 @@ class UserModel extends Database
   public $id;
   public $nom;
   public $telephone;
+  public $email;
   public $profil;
 
   /**
