@@ -1,7 +1,7 @@
 <?php
-  require_once __DIR__ . "/../models/ArtistModel.php";
+  require_once __DIR__ . "/../models/ArtisteModel.php";
 
-  class ArtistController extends BaseController
+  class ArtisteController extends BaseController
   {
 
     /**
@@ -10,7 +10,7 @@
     public function getList() {
       try {
         // ---- TODO : Commenter ce bout de code ----
-        $artistModel = new ArtistModel();
+        $artisteModel = new ArtisteModel();
 
         // ---- TODO : Commenter ce bout de code ----
         $limit = 10;
@@ -27,10 +27,10 @@
         }
 
         // ---- TODO : Commenter ce bout de code ----
-        $artists = $artistModel->getAllArtists($offset, $limit);
+        $artistes = $artisteModel->getAllArtistes($offset, $limit);
 
         // ---- TODO : Commenter ce bout de code ----
-        $responseData = json_encode($artists);
+        $responseData = json_encode($artistes);
 
         // ---- TODO : Commenter ce bout de code ----
         $this->sendOutput($responseData);
@@ -48,7 +48,7 @@
     public function get() {
       try {
         // ---- TODO : Commenter ce bout de code ----
-        $artistModel = new ArtistModel();
+        $artisteModel = new ArtisteModel();
 
         // ---- TODO : Commenter ce bout de code ----
         $urlParams = $this->getQueryStringParams();
@@ -57,10 +57,10 @@
         }
 
         // ---- TODO : Commenter ce bout de code ----
-        $artist = $artistModel->getSingleArtist($urlParams['id']);
+        $artiste = $artisteModel->getSingleArtiste($urlParams['id']);
 
         // ---- TODO : Commenter ce bout de code ----
-        $responseData = json_encode($artist);
+        $responseData = json_encode($artiste);
 
         // ---- TODO : Commenter ce bout de code ----
         $this->sendOutput($responseData);
@@ -78,7 +78,7 @@
     public function store() {
       try {
         // ---- TODO : Commenter ce bout de code ----
-        $artistModel = new ArtistModel();
+        $artisteModel = new ArtisteModel();
 
         // ---- TODO : Commenter ce bout de code ----
         $body = $this->getBody();
@@ -104,10 +104,10 @@
         }
 
         // ---- TODO : Commenter ce bout de code ----
-        $artist = $artistModel->insertArtist($valuesToInsert);
+        $artiste = $artisteModel->insertArtiste($valuesToInsert);
 
         // ---- TODO : Commenter ce bout de code ----
-        $responseData = json_encode($artist);
+        $responseData = json_encode($artiste);
 
         // ---- TODO : Commenter ce bout de code ----
         $this->sendOutput($responseData);
@@ -125,7 +125,7 @@
     public function update() {
       try {
         // ---- TODO : Commenter ce bout de code ----
-        $artistModel = new ArtistModel();
+        $artisteModel = new ArtisteModel();
 
         // ---- TODO : Commenter ce bout de code ----
         $body = $this->getBody();
@@ -148,10 +148,10 @@
         }
 
         // ---- TODO : Commenter ce bout de code ----
-        $artist = $artistModel->updateArtist($valuesToUpdate, $body['id']);
+        $artiste = $artisteModel->updateArtiste($valuesToUpdate, $body['id']);
 
         // ---- TODO : Commenter ce bout de code ----
-        $responseData = json_encode($artist);
+        $responseData = json_encode($artiste);
 
         // ---- TODO : Commenter ce bout de code ----
         $this->sendOutput($responseData);
@@ -169,7 +169,7 @@
     public function destroy() {
       try {
         // ---- TODO : Commenter ce bout de code ----
-        $artistModel = new ArtistModel();
+        $artisteModel = new ArtisteModel();
 
         // ---- TODO : Commenter ce bout de code ----
         $urlParams = $this->getQueryStringParams();
@@ -178,7 +178,7 @@
         }
 
         // ---- TODO : Commenter ce bout de code ----
-        $artist = $artistModel->deleteArtist($urlParams['id']);
+        $artiste = $artisteModel->deleteArtiste($urlParams['id']);
 
         // ---- TODO : Commenter ce bout de code ----
         $responseData = json_encode("L'utilisateur a été correctement supprimé");

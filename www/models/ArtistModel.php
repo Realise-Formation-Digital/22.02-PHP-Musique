@@ -1,7 +1,7 @@
 <?php
 require_once __DIR__ . "/Database.php";
 
-class ArtistModel extends Database
+class ArtisteModel extends Database
 {
   public $id;
   public $nom;
@@ -10,31 +10,31 @@ class ArtistModel extends Database
   /**
    * ---- TODO : Commenter cette méthode ----
    */
-  public function getAllArtists($offset = 0, $limit = 10)
+  public function getAllArtistes($offset = 0, $limit = 10)
   {
     // ---- TODO : Commenter ce bout de code ----
     return $this->getMany(
-      "SELECT * FROM artists ORDER BY nom ASC LIMIT $offset, $limit",
-      "ArtistModel"
+      "SELECT * FROM artistes ORDER BY nom ASC LIMIT $offset, $limit",
+      "ArtisteModel"
     );
   }
 
   /**
    * ---- TODO : Commenter cette méthode ----
    */
-  public function getSingleArtist($id)
+  public function getSingleArtiste($id)
   {
     // ---- TODO : Commenter ce bout de code ----
     return $this->getSingle(
-      "SELECT * FROM artists WHERE id = $id",
-      "ArtistModel"
+      "SELECT * FROM artistes WHERE id = $id",
+      "ArtisteModel"
     );
   }
 
   /**
    * ---- TODO : Commenter cette méthode ----
    */
-  public function insertArtist($array)
+  public function insertArtiste($array)
   {
     // ---- TODO : Commenter ce bout de code ----
     $keys = implode(", ", array_keys($array));
@@ -42,16 +42,16 @@ class ArtistModel extends Database
 
     // ---- TODO : Commenter ce bout de code ----
     return $this->insert(
-      "INSERT INTO artists ($keys) VALUES ('$values')",
-      "ArtistModel",
-      "SELECT * FROM artists"
+      "INSERT INTO artistes ($keys) VALUES ('$values')",
+      "ArtisteModel",
+      "SELECT * FROM artistes"
     );
   }
 
   /**
    * ---- TODO : Commenter cette méthode ----
    */
-  public function updateArtist($array, $id)
+  public function updateArtiste($array, $id)
   {
     // ---- TODO : Commenter ce bout de code ----
     $values_array = [];
@@ -62,22 +62,22 @@ class ArtistModel extends Database
 
     // ---- TODO : Commenter ce bout de code ----
     return $this->update(
-      "UPDATE artists SET $values WHERE id = $id",
-      "ArtistModel",
-      "SELECT id FROM artists WHERE id=$id",
-      "SELECT * FROM artists WHERE id=$id"
+      "UPDATE artistes SET $values WHERE id = $id",
+      "ArtisteModel",
+      "SELECT id FROM artistes WHERE id=$id",
+      "SELECT * FROM artistes WHERE id=$id"
     );
   }
 
   /**
    * ---- TODO : Commenter cette méthode ----
    */
-  public function deleteArtist($id)
+  public function deleteArtiste($id)
   {
     // ---- TODO : Commenter ce bout de code ----
     return $this->delete(
-      "DELETE FROM artists WHERE id=$id",
-      "SELECT id FROM artists WHERE id=$id"
+      "DELETE FROM artistes WHERE id=$id",
+      "SELECT id FROM artistes WHERE id=$id"
     );
   }
 
