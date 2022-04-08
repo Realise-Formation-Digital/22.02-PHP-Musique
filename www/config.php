@@ -1,6 +1,14 @@
 <?php
 
-  define("DB_HOST", "maria_db");
-  define("DB_USERNAME", "CF");
-  define("DB_PASSWORD", "digital2021");
-  define("DB_DATABASE_NAME", "apiphp_db");
+  define("DB_HOST", "192.168.150.11");
+  define("DB_USERNAME", "root");
+  define("DB_PASSWORD", "musique");
+  define("DB_DATABASE_NAME", "musique");
+  define("DB_PORT", "43306");
+
+
+  // define("DB_HOST", "localhost");
+  // define("DB_USERNAME", "musique");
+  // define("DB_PASSWORD", "mus1que");
+  // define("DB_DATABASE_NAME", "musique");
+  // define("DB_PORT", "3306");

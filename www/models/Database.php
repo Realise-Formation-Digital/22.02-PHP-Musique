@@ -11,7 +11,7 @@
     {
       try {
         // Connect to the database.
-        $this->connection = new PDO("mysql:host=" . DB_HOST . ";dbname=" . DB_DATABASE_NAME, DB_USERNAME, DB_PASSWORD);
+        $this->connection = new PDO("mysql:host=" . DB_HOST . ";port=" . DB_PORT . ";dbname=" . DB_DATABASE_NAME, DB_USERNAME, DB_PASSWORD);
       } catch(PDOException $e) {
         // Send an error because it could not connect to the database.
         throw new Exception($e->getMessage());
