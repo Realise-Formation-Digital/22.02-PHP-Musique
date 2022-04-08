@@ -1,0 +1,42 @@
+version: "3.3"
+
+services:
+  maria_db:
+    container_name: apiphp_mariadb
+    image: mariadb:latest # version de l'image mysql
+    volumes:
+      - ./data_db:/var/lib/mariadb # où seront stockée les données en local
+    environment:
+        MYSQL_ROOT_PASSWORD: admin_digital2021 # mot de passe root
+        MYSQL_DATABASE: apiphp_db # le nom de la db  
+        MYSQL_USER: CF # votre nom d'utilisateur
+        MYSQL_PASSWORD: digital2021 # votre mot de passe
+
+  phpmyadmin:
+    container_name: apiphp_phpmyadmin
+    image: phpmyadmin/phpmyadmin:4.9 # version de l'image phpMyAdmin
+    links:
+      - maria_db # lien avec le mysql
+    environment:
+      VIRTUAL_HOST: apiphp_host
+      PMA_HOST: maria_db
+      PMA_PORT: 3306
+    ports:
+      - '9009:80' # le port pour accéder à phpMyAdmin -> localhost:9009
+  # `webserver` service provides Apache + PHP
+  webserver:
+    container_name : apiphp_server
+    # Use custom image based on php-apache official image
+    build: .
+    # Run the services as the same user as the host's one, or as user with uid 1000
+    user: "${UID:-1001}:${GID:-1001}"
+    # Expose HTTP/S ports
+    ports:
+      - "8800:80"
+    working_dir: /var/www/html # chemin virtuel pointant vers le container déployé
+    volumes: 
+      # Served files
+      - ./www:/var/www/html
+    sysctls:
+      # Allow OS to bind 80 port to unprivileged (eg. non-root) users
+      - net.ipv4.ip_unprivileged_port_start=0 
