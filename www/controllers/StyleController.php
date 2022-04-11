@@ -27,7 +27,7 @@
         }
 
         // ---- TODO : Commenter ce bout de code ----
-        $style = $styleModel->getAllStyles($offset, $limit);
+        $style = $styleModel->getAllStyle($offset, $limit);
 
         // ---- TODO : Commenter ce bout de code ----
         $responseData = json_encode($style);
