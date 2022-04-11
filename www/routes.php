@@ -26,5 +26,8 @@ $routes = [
   "/api/style/update" => ['PUT', 'StyleController', 'update'],
   "/api/style/remove" => ['DELETE', 'StyleController', 'destroy'],
 
+  "/api/artiste_musique/list" => ['GET', 'ArtisteMusiqueController','getList'],
+  
+
 ];
 
