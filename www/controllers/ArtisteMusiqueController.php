@@ -1,17 +1,16 @@
 <?php
-  require_once __DIR__ . "/../models/StyleModel.php";
+  require_once __DIR__ . "/../models/ArtisteMusiqueModel.php";
 
-  class StyleController extends BaseController
+  class ArtisteMusiqueController extends BaseController
   {
 
-    
     /**
      * ---- TODO : Commenter cette méthode ----
      */
     public function getList() {
       try {
         // ---- TODO : Commenter ce bout de code ----
-        $styleModel = new StyleModel();
+        $artisteMusiqueModel = new ArtisteMusiqueModel();
 
         // ---- TODO : Commenter ce bout de code ----
         $limit = 10;
@@ -28,10 +27,10 @@
         }
 
         // ---- TODO : Commenter ce bout de code ----
-        $style = $styleModel->getAllStyle($offset, $limit);
+        $artistesMusique = $artisteMusiqueModel->getAllArtisteMusiques($offset, $limit);
 
         // ---- TODO : Commenter ce bout de code ----
-        $responseData = json_encode($style);
+        $responseData = json_encode($artisteMusiqus);
 
         // ---- TODO : Commenter ce bout de code ----
         $this->sendOutput($responseData);
@@ -49,7 +48,7 @@
     public function get() {
       try {
         // ---- TODO : Commenter ce bout de code ----
-        $styleModel = new StyleModel();
+        $artisteMusiqueModel = new ArtisteMusiqueModel();
 
         // ---- TODO : Commenter ce bout de code ----
         $urlParams = $this->getQueryStringParams();
@@ -58,10 +57,10 @@
         }
 
         // ---- TODO : Commenter ce bout de code ----
-        $style = $styleModel->getSingleStyle($urlParams['id']);
+        $artisteMusique = $artisteMusiqueModel->getSingleArtisteMusique($urlParams['id']);
 
         // ---- TODO : Commenter ce bout de code ----
-        $responseData = json_encode($style);
+        $responseData = json_encode($artisteMusique);
 
         // ---- TODO : Commenter ce bout de code ----
         $this->sendOutput($responseData);
@@ -79,7 +78,7 @@
     public function store() {
       try {
         // ---- TODO : Commenter ce bout de code ----
-        $styleModel = new StyleModel();
+        $artisteMusiqueModel = new ArtisteMusiqueModel();
 
         // ---- TODO : Commenter ce bout de code ----
         $body = $this->getBody();
@@ -91,24 +90,24 @@
         if (!isset($body['nom'])) {
           throw new Exception("Aucun nom n'a été spécifié");
         }
-        if (!isset($body['type'])) {
-          throw new Exception("Aucun genre de musique n'a été spécifié");
+        if (!isset($body['groupe'])) {
+          throw new Exception("Aucun groupe n'a été spécifié");
         }
-
+        
         // ---- TODO : Commenter ce bout de code ----
         $keys = array_keys($body);
         $valuesToInsert = [];
         foreach($keys as $key) {
-          if (in_array($key, ['nom', 'type'])) {
+          if (in_array($key, ['nom', 'groupe'])) {
             $valuesToInsert[$key] = $body[$key];
           }
         }
 
         // ---- TODO : Commenter ce bout de code ----
-        $style = $styleModel->insertStyle($valuesToInsert);
+        $artiste = $artisteMusiqueModel->insertArtisteMusique($valuesToInsert);
 
         // ---- TODO : Commenter ce bout de code ----
-        $responseData = json_encode($style);
+        $responseData = json_encode($artisteMusique);
 
         // ---- TODO : Commenter ce bout de code ----
         $this->sendOutput($responseData);
@@ -126,7 +125,7 @@
     public function update() {
       try {
         // ---- TODO : Commenter ce bout de code ----
-        $styleModel = new StyleModel();
+        $artisteMusiqueModel = new ArtisteMusiqueModel();
 
         // ---- TODO : Commenter ce bout de code ----
         $body = $this->getBody();
@@ -143,16 +142,16 @@
         $keys = array_keys($body);
         $valuesToUpdate = [];
         foreach($keys as $key) {
-          if (in_array($key, ['nom', 'type'])) {
+          if (in_array($key, ['nom', 'groupe'])) {
             $valuesToUpdate[$key] = $body[$key];
           }
         }
 
         // ---- TODO : Commenter ce bout de code ----
-        $style = $styleModel->updateStyle($valuesToUpdate, $body['id']);
+        $artisteMusique = $artisteMusiqueModel->updateArtiste($valuesToUpdate, $body['id']);
 
         // ---- TODO : Commenter ce bout de code ----
-        $responseData = json_encode($style);
+        $responseData = json_encode($artisteMusique);
 
         // ---- TODO : Commenter ce bout de code ----
         $this->sendOutput($responseData);
@@ -170,7 +169,7 @@
     public function destroy() {
       try {
         // ---- TODO : Commenter ce bout de code ----
-        $styleModel = new StyleModel();
+        $artisteMusiqueModel = new ArtisteMusiqueModel();
 
         // ---- TODO : Commenter ce bout de code ----
         $urlParams = $this->getQueryStringParams();
@@ -179,7 +178,7 @@
         }
 
         // ---- TODO : Commenter ce bout de code ----
-        $style = $styleModel->deleteStyle($urlParams['id']);
+        $artisteMusique = $artisteMusiqueModel->deleteArtisteMusique($urlParams['id']);
 
         // ---- TODO : Commenter ce bout de code ----
         $responseData = json_encode("L'utilisateur a été correctement supprimé");

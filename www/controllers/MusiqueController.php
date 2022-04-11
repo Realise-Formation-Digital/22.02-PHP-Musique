@@ -102,7 +102,7 @@
         $keys = array_keys($body);
         $valuesToInsert = [];
         foreach($keys as $key) {
-          if (in_array($key, ['nom', 'telephone', 'email', 'profil'])) {
+          if (in_array($key, ['nom', 'durée', 'album', 'style_id'])) {
             $valuesToInsert[$key] = $body[$key];
           }
         }
@@ -146,7 +146,7 @@
         $keys = array_keys($body);
         $valuesToUpdate = [];
         foreach($keys as $key) {
-          if (in_array($key, ['nom', 'durée', 'album'])) {
+          if (in_array($key, ['nom', 'durée', 'album', 'style_id'])) {
             $valuesToUpdate[$key] = $body[$key];
           }
         }
