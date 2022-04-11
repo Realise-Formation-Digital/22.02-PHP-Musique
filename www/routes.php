@@ -27,4 +27,3 @@ $routes = [
   "/api/style/remove" => ['DELETE', 'StyleController', 'destroy'],
 
 ];
-
