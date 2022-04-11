@@ -7,6 +7,7 @@ services:
     volumes:
       - ./data_db:/var/lib/mariadb # où seront stockée les données en local
     environment:
+
         MYSQL_ROOT_PASSWORD: musique # mot de passe root
         MYSQL_DATABASE: musique # le nom de la db  
         MYSQL_USER: musique # votre nom d'utilisateur
