@@ -1,42 +1,42 @@
 <?php
 require_once __DIR__ . "/Database.php";
 
-class UserModel extends Database
+class MusiqueModel extends Database
 {
   public $id;
   public $nom;
-  public $telephone;
-  public $email;
-  public $profil;
+  public $durée;
+  public $album;
+  public $style_id;
 
   /**
    * ---- TODO : Commenter cette méthode ----
    */
-  public function getAllUsers($offset = 0, $limit = 10)
+  public function getAllMusique($offset = 0, $limit = 10)
   {
     // ---- TODO : Commenter ce bout de code ----
     return $this->getMany(
-      "SELECT * FROM users ORDER BY nom ASC LIMIT $offset, $limit",
-      "UserModel"
+      "SELECT * FROM musique ORDER BY nom ASC LIMIT $offset, $limit",
+      "MusiqueModel"
     );
   }
 
   /**
    * ---- TODO : Commenter cette méthode ----
    */
-  public function getSingleUser($id)
+  public function getSingleMusique($id)
   {
     // ---- TODO : Commenter ce bout de code ----
     return $this->getSingle(
-      "SELECT * FROM users WHERE id = $id",
-      "UserModel"
+      "SELECT * FROM musique WHERE id = $id",
+      "MusiqueModel"
     );
   }
 
   /**
    * ---- TODO : Commenter cette méthode ----
    */
-  public function insertUser($array)
+  public function insertMusique($array)
   {
     // ---- TODO : Commenter ce bout de code ----
     $keys = implode(", ", array_keys($array));
@@ -44,16 +44,16 @@ class UserModel extends Database
 
     // ---- TODO : Commenter ce bout de code ----
     return $this->insert(
-      "INSERT INTO users ($keys) VALUES ('$values')",
-      "UserModel",
-      "SELECT * FROM users"
+      "INSERT INTO musique ($keys) VALUES ('$values')",
+      "MusiqueModel",
+      "SELECT * FROM musique"
     );
   }
 
   /**
    * ---- TODO : Commenter cette méthode ----
    */
-  public function updateUser($array, $id)
+  public function updateMusique($array, $id)
   {
     // ---- TODO : Commenter ce bout de code ----
     $values_array = [];
@@ -64,22 +64,22 @@ class UserModel extends Database
 
     // ---- TODO : Commenter ce bout de code ----
     return $this->update(
-      "UPDATE users SET $values WHERE id = $id",
-      "UserModel",
-      "SELECT id FROM users WHERE id=$id",
-      "SELECT * FROM users WHERE id=$id"
+      "UPDATE musique SET $values WHERE id = $id",
+      "MusiqueModel",
+      "SELECT id FROM musique WHERE id=$id",
+      "SELECT * FROM musique WHERE id=$id"
     );
   }
 
   /**
    * ---- TODO : Commenter cette méthode ----
    */
-  public function deleteUser($id)
+  public function deleteMusique($id)
   {
     // ---- TODO : Commenter ce bout de code ----
     return $this->delete(
-      "DELETE FROM users WHERE id=$id",
-      "SELECT id FROM users WHERE id=$id"
+      "DELETE FROM musique WHERE id=$id",
+      "SELECT id FROM musique WHERE id=$id"
     );
   }
 

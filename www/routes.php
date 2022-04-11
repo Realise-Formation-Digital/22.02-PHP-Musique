@@ -1,7 +1,7 @@
 <?php
 
 // ---- TODO : Commenter ce bout de code, qu'est-ce qu'il recherche ? ----
-require_once __DIR__ . "/controllers/ArtisteController.php";
+//require_once __DIR__ . "/controllers/ArtisteController.php";
 require_once __DIR__ . "/controllers/MusiqueController.php";
 require_once __DIR__ . "/controllers/StyleController.php";
 
