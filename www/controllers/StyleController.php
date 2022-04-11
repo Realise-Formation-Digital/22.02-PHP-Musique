@@ -57,7 +57,7 @@
         }
 
         // ---- TODO : Commenter ce bout de code ----
-        $style = $styleModel->getSingleStyles($urlParams['id']);
+        $style = $styleModel->getSingleStyle($urlParams['id']);
 
         // ---- TODO : Commenter ce bout de code ----
         $responseData = json_encode($style);
