@@ -1,7 +1,7 @@
 <?php
-  require_once __DIR__ . "/../models/UserModel.php";
+  require_once __DIR__ . "/../models/MusiqueModel.php";
 
-  class UserController extends BaseController
+  class MusiqueController extends BaseController
   {
 
     /**
@@ -10,7 +10,7 @@
     public function getList() {
       try {
         // ---- TODO : Commenter ce bout de code ----
-        $userModel = new UserModel();
+        $musiqueModel = new MusiqueModel();
 
         // ---- TODO : Commenter ce bout de code ----
         $limit = 10;
@@ -27,10 +27,10 @@
         }
 
         // ---- TODO : Commenter ce bout de code ----
-        $users = $userModel->getAllUsers($offset, $limit);
+        $musique = $musiqueModel->getAllMusique($offset, $limit);
 
         // ---- TODO : Commenter ce bout de code ----
-        $responseData = json_encode($users);
+        $responseData = json_encode($musique);
 
         // ---- TODO : Commenter ce bout de code ----
         $this->sendOutput($responseData);
@@ -48,7 +48,7 @@
     public function get() {
       try {
         // ---- TODO : Commenter ce bout de code ----
-        $userModel = new UserModel();
+        $musiqueModel = new MusiqueModel();
 
         // ---- TODO : Commenter ce bout de code ----
         $urlParams = $this->getQueryStringParams();
@@ -57,10 +57,10 @@
         }
 
         // ---- TODO : Commenter ce bout de code ----
-        $user = $userModel->getSingleUser($urlParams['id']);
+        $musique = $musiqueModel->getSingleMusique($urlParams['id']);
 
         // ---- TODO : Commenter ce bout de code ----
-        $responseData = json_encode($user);
+        $responseData = json_encode($musique);
 
         // ---- TODO : Commenter ce bout de code ----
         $this->sendOutput($responseData);
@@ -78,7 +78,7 @@
     public function store() {
       try {
         // ---- TODO : Commenter ce bout de code ----
-        $userModel = new UserModel();
+        $musiqueModel = new MusiqueModel();
 
         // ---- TODO : Commenter ce bout de code ----
         $body = $this->getBody();
@@ -90,14 +90,11 @@
         if (!isset($body['nom'])) {
           throw new Exception("Aucun nom n'a été spécifié");
         }
-        if (!isset($body['telephone'])) {
-          throw new Exception("Aucun téléphone n'a été spécifié");
+        if (!isset($body['durée'])) {
+          throw new Exception("Aucune durée n'a été spécifiée");
         }
-        if (!isset($body['email'])) {
-          throw new Exception("Aucun e-mail n'a été spécifié");
-        }
-        if (!isset($body['profil'])) {
-          throw new Exception("Aucun profil n'a été spécifié");
+        if (!isset($body['album'])) {
+          throw new Exception("Aucun album n'a été spécifié");
         }
 
         // ---- TODO : Commenter ce bout de code ----
@@ -110,10 +107,10 @@
         }
 
         // ---- TODO : Commenter ce bout de code ----
-        $user = $userModel->insertUser($valuesToInsert);
+        $musique = $musiqueModel->insertMusique($valuesToInsert);
 
         // ---- TODO : Commenter ce bout de code ----
-        $responseData = json_encode($user);
+        $responseData = json_encode($musique);
 
         // ---- TODO : Commenter ce bout de code ----
         $this->sendOutput($responseData);
@@ -131,7 +128,7 @@
     public function update() {
       try {
         // ---- TODO : Commenter ce bout de code ----
-        $userModel = new UserModel();
+        $musiqueModel = new MusiqueModel();
 
         // ---- TODO : Commenter ce bout de code ----
         $body = $this->getBody();
@@ -148,16 +145,16 @@
         $keys = array_keys($body);
         $valuesToUpdate = [];
         foreach($keys as $key) {
-          if (in_array($key, ['nom', 'telephone', 'email', 'profil'])) {
+          if (in_array($key, ['nom', 'durée', 'album'])) {
             $valuesToUpdate[$key] = $body[$key];
           }
         }
 
         // ---- TODO : Commenter ce bout de code ----
-        $user = $userModel->updateUser($valuesToUpdate, $body['id']);
+        $musique = $musiqueModel->updateMusique($valuesToUpdate, $body['id']);
 
         // ---- TODO : Commenter ce bout de code ----
-        $responseData = json_encode($user);
+        $responseData = json_encode($musique);
 
         // ---- TODO : Commenter ce bout de code ----
         $this->sendOutput($responseData);
@@ -175,7 +172,7 @@
     public function destroy() {
       try {
         // ---- TODO : Commenter ce bout de code ----
-        $userModel = new UserModel();
+        $musiqueModel = new MusiqueModel();
 
         // ---- TODO : Commenter ce bout de code ----
         $urlParams = $this->getQueryStringParams();
@@ -184,10 +181,10 @@
         }
 
         // ---- TODO : Commenter ce bout de code ----
-        $user = $userModel->deleteUser($urlParams['id']);
+        $musique = $musiqueModel->deleteMusique($urlParams['id']);
 
         // ---- TODO : Commenter ce bout de code ----
-        $responseData = json_encode("L'utilisateur a été correctement supprimé");
+        $responseData = json_encode("La musique a été correctement supprimée");
 
         // ---- TODO : Commenter ce bout de code ----
         $this->sendOutput($responseData);
