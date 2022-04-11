@@ -4,6 +4,7 @@
   class StyleController extends BaseController
   {
 
+    
     /**
      * ---- TODO : Commenter cette méthode ----
      */

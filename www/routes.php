@@ -14,6 +14,7 @@ $routes = [
   "/api/artistes/update" => ['PUT', 'ArtisteController', 'update'],
   "/api/artistes/remove" => ['DELETE', 'ArtisteController', 'destroy'],
 
+
   // "/api/musique/list" => ['GET', 'MusiqueController', 'getList'],
   // "/api/musique/get" => ['GET', 'MusiqueController', 'get'],
   // "/api/musique/add" => ['POST', 'MusiqueController', 'store'],

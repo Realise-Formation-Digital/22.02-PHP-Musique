@@ -4,6 +4,7 @@
   class ArtisteController extends BaseController
   {
 
+    
     /**
      * ---- TODO : Commenter cette méthode ----
      */

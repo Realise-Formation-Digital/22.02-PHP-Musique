@@ -31,6 +31,7 @@ class ArtisteModel extends Database
     );
   }
 
+  
   /**
    * ---- TODO : Commenter cette méthode ----
    */
