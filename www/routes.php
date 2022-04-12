@@ -5,6 +5,7 @@ require_once __DIR__ . "/controllers/BaseController.php";
 require_once __DIR__ . "/controllers/ArtisteController.php";
 require_once __DIR__ . "/controllers/MusiqueController.php";
 require_once __DIR__ . "/controllers/StyleController.php";
+require_once __DIR__ . "/controllers/ArtisteMusiqueController.php";
 
 // ---- TODO : Commenter ce bout de code ----
 $routes = [
