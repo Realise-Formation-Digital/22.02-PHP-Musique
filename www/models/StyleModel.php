@@ -87,18 +87,22 @@ class StyleModel extends Database
     "SELECT m.id, m.nom, m.durée, m.album, CONCAT(s.nom, '/', s.type) as style
       FROM musique m
       INNER JOIN style s ON s.id = m.style_id
-      ORDER BY m.nom ASC LIMIT $offset, $limit"
+      ORDER BY m.nom ASC LIMIT $offset, $limit",
+      "StyleModel"
     );
   }
 
   public function styleMusique($styleID)
   {
-    return $this-> getSingle(
+    return $this-> getMany(
     "SELECT m.id, m.nom, m.durée, m.album, CONCAT(s.nom, '/', s.type) as style
       FROM style s
       INNER JOIN musique m ON s.id = m.style_id
-      WHERE s.id = $styleID"
+      WHERE s.id = $styleID",
+      "StyleModel"
     );
   }
+
+  
 
 }

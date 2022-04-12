@@ -31,4 +31,6 @@ $routes = [
   "/api/style/remove" => ['DELETE', 'StyleController', 'destroy'],
   "/api/style_musique/get" => ['GET', 'StyleController', 'getStyleMusique' ],
 
+  
+
 ];
