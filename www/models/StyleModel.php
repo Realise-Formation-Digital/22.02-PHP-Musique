@@ -81,16 +81,16 @@ class StyleModel extends Database
     );
   }
 
-  public function getTitleStyle($musiqueID) {
+  public function getTitleStyle($musiqueID) 
+  {
     return $this->getMany(
-     "SELECT m.id, m.nom, m.durée, m.album, CONCAT(s.nom, '/', s.type) as
-     style
-    FROM musique m
-    INNER JOIN style s ON s.id = m.style_id
-    ORDER BY m.nom ASC LIMIT $offset, $limit"
-  );
+    "SELECT m.id, m.nom, m.durée, m.album, CONCAT(s.nom, '/', s.type) as style
+      FROM musique m
+      INNER JOIN style s ON s.id = m.style_id
+      ORDER BY m.nom ASC LIMIT $offset, $limit"
+    );
+  }
 
-}
   public function styleMusique($styleID)
   {
     return $this-> getSingle(
