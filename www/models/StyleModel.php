@@ -81,4 +81,14 @@ class StyleModel extends Database
     );
   }
 
+  public function styleMusique($styleID)
+  {
+    return $this-> getSingle(
+    "SELECT m.id, m.nom, m.durée, m.album, CONCAT(s.nom, '/', s.type) as style
+      FROM style s
+      INNER JOIN musique m ON s.id = m.style_id
+      WHERE s.id = $styleID"
+    );
+  }
+
 }
