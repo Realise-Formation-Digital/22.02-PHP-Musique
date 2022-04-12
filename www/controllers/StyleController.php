@@ -194,4 +194,32 @@
       }
     }
 
+    public function getStyleMusique() {
+      try {
+        // ---- TODO : Commenter ce bout de code ----
+        $styleModel = new StyleModel();
+
+        // ---- TODO : Commenter ce bout de code ----
+        $urlParams = $this->getQueryStringParams();
+        if (!isset($urlParams['styleID']) || !is_numeric($urlParams['styleID'])) {
+          throw new Exception("L'identifiant est incorrect ou n'a pas été spécifié");
+        }
+
+        // ---- TODO : Commenter ce bout de code ----
+        $style = $styleModel->styleMusique($urlParams['styleID']);
+
+        // ---- TODO : Commenter ce bout de code ----
+        $responseData = json_encode($style);
+
+        // ---- TODO : Commenter ce bout de code ----
+        $this->sendOutput($responseData);
+      } catch (Error $e) {
+        // ---- TODO : Commenter ce bout de code ----
+        $strErrorDesc = $e->getMessage().'Something went wrong! Please contact support.';
+        $strErrorHeader = 'HTTP/1.1 500 Internal Server Error';
+        $this->sendOutput($strErrorDesc, ['Content-Type: application/json', $strErrorHeader]);
+      }
+    }
+
+
   }

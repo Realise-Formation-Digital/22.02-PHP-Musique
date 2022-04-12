@@ -22,9 +22,25 @@ services:
       VIRTUAL_HOST: musique_host
       PMA_HOST: maria_db
       PMA_PORT: 3306
+
+
+
+      # ################# ATTENTION!!!!! ####################
+      # PHP MY ADMIN EST SUR http://portainer.realise.ch:58080/ ET NON 9010:80 ###########
+      # BDD SUR 192.168.150.11:43306
+      # USERNAME: xavier
+      # PASSWORD: 123456
+       
     ports:
       - '9010:80' # le port pour accéder à phpMyAdmin -> localhost:9009
   # `webserver` service provides Apache + PHP
+      # ############ SERVEUR 
+  
+  
+  
+  
+  
+  
   webserver:
     container_name : musique_server
     # Use custom image based on php-apache official image
