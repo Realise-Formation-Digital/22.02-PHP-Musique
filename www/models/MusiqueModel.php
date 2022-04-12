@@ -83,4 +83,15 @@ class MusiqueModel extends Database
     );
   }
 
+  public function getArtisteAndTitle($musiqueID) {
+    return $this->getMany(
+      "SELECT * FROM musique m
+      INNER JOIN artiste_musique am ON am.musique_id = m.id
+      INNER JOIN artiste a ON a.id = am.artiste_id
+      WHERE m.id = $musiqueID",
+      "MusiqueModel"
+    );
+
+  }
+
 }

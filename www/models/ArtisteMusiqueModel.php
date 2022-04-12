@@ -13,7 +13,7 @@ class ArtisteMusiqueModel extends Database
   {
     // ---- TODO : Commenter ce bout de code ----
     return $this->getMany(
-      "SELECT * FROM artiste_musique ORDER BY nom ASC LIMIT $offset, $limit",
+      "SELECT * FROM artiste_musique ORDER BY artiste_id ASC LIMIT $offset, $limit",
       "ArtisteMusiqueModel"
     );
   }
@@ -21,11 +21,11 @@ class ArtisteMusiqueModel extends Database
   /**
    * ---- TODO : Commenter cette méthode ----
    */
-  public function getSingleArtisteMusique($id)
+  public function getSingleArtisteMusique($artiste_id)
   {
     // ---- TODO : Commenter ce bout de code ----
     return $this->getSingle(
-      "SELECT * FROM artiste_musique WHERE id = $id",
+      "SELECT * FROM artiste_musique WHERE artiste_id = $artiste_id",
       "ArtisteMusiqueModel"
     );
   }
@@ -50,7 +50,7 @@ class ArtisteMusiqueModel extends Database
   /**
    * ---- TODO : Commenter cette méthode ----
    */
-  public function updateArtisteMusique($array, $id)
+  public function updateArtisteMusique($array, $artiste_id)
   {
     // ---- TODO : Commenter ce bout de code ----
     $values_array = [];
@@ -61,22 +61,22 @@ class ArtisteMusiqueModel extends Database
 
     // ---- TODO : Commenter ce bout de code ----
     return $this->update(
-      "UPDATE artiste_musique SET $values WHERE id = $id",
+      "UPDATE artiste_musique SET $values WHERE artiste_id = $artiste_id",
       "ArtisteMusiqueModel",
-      "SELECT id FROM artiste_musique WHERE id=$id",
-      "SELECT * FROM artiste_musique WHERE id=$id"
+      "SELECT artiste_id FROM artiste_musique WHERE artiste_id = $artiste_id",
+      "SELECT * FROM artiste_musique WHERE artiste_id = $artiste_id"
     );
   }
 
   /**
    * ---- TODO : Commenter cette méthode ----
    */
-  public function deleteArtisteMusique($id)
+  public function deleteArtisteMusique($artiste_id)
   {
     // ---- TODO : Commenter ce bout de code ----
     return $this->delete(
-      "DELETE FROM artiste_musique WHERE id=$id",
-      "SELECT id FROM artiste_musique WHERE id=$id"
+      "DELETE FROM artiste_musique WHERE artiste_id=$artiste_id",
+      "SELECT artiste_id FROM artiste_musique WHERE artiste_id=$artiste_id"
     );
   }
 

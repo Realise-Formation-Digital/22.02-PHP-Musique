@@ -197,4 +197,34 @@
       }
     }
 
+    
+    public function getTitleList() {
+      try {
+        // ---- TODO : Commenter ce bout de code ----
+        $musiqueModel = new MusiqueModel();
+
+        // ---- TODO : Commenter ce bout de code ----
+        $urlParams = $this->getQueryStringParams();
+        if (!isset($urlParams['artiste_id']) || !is_numeric($urlParams['artiste_id'])) {
+          throw new Exception("L'identifiant est incorrect ou n'a pas été spécifié");
+        }
+
+        // ---- TODO : Commenter ce bout de code ----
+        $musique = $musiqueModel->getSingleMusique($urlParams['artiste_id']);
+
+        // ---- TODO : Commenter ce bout de code ----
+        $responseData = json_encode($musique);
+
+        // ---- TODO : Commenter ce bout de code ----
+        $this->sendOutput($responseData);
+      } catch (Error $e) {
+        // ---- TODO : Commenter ce bout de code ----
+        $strErrorDesc = $e->getMessage().'Something went wrong! Please contact support.';
+        $strErrorHeader = 'HTTP/1.1 500 Internal Server Error';
+        $this->sendOutput($strErrorDesc, ['Content-Type: application/json', $strErrorHeader]);
+      }
+    }
+
+
+
   }

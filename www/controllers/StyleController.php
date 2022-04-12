@@ -6,11 +6,11 @@
 
     
     /**
-     * ---- TODO : Commenter cette méthode ----
+     * ----  ----
      */
     public function getList() {
       try {
-        // ---- TODO : Commenter ce bout de code ----
+        // ---- new instance ----
         $styleModel = new StyleModel();
 
         // ---- TODO : Commenter ce bout de code ----
