@@ -48,16 +48,16 @@
     public function get() {
       try {
         // ---- TODO : Commenter ce bout de code ----
-        $artisteMusiqueModel = new artisteMusiqueModel();
+        $artisteMusiqueModel = new ArtisteMusiqueModel();
 
         // ---- TODO : Commenter ce bout de code ----
         $urlParams = $this->getQueryStringParams();
-        if (!isset($urlParams['id']) || !is_numeric($urlParams['id'])) {
+        if (!isset($urlParams['artiste_id']) || !is_numeric($urlParams['artiste_id'])) {
           throw new Exception("L'identifiant est incorrect ou n'a pas été spécifié");
         }
 
         // ---- TODO : Commenter ce bout de code ----
-        $artisteMusique = $artisteMusiqueModel->getSingleArtisteMusique($urlParams['id']);
+        $artisteMusique = $artisteMusiqueModel->getSingleArtisteMusique($urlParams['artiste_id']);
 
         // ---- TODO : Commenter ce bout de code ----
         $responseData = json_encode($artisteMusique);
@@ -87,18 +87,18 @@
         }
 
         // ---- TODO : Commenter ce bout de code ----
-        if (!isset($body['nom'])) {
-          throw new Exception("Aucun nom n'a été spécifié");
+        if (!isset($body['artiste_id'])) {
+          throw new Exception("Aucun artiste n'a été spécifié");
         }
-        if (!isset($body['groupe'])) {
-          throw new Exception("Aucun groupe n'a été spécifié");
+        if (!isset($body['musique_id'])) {
+          throw new Exception("Aucune musique n'a été spécifiée");
         }
         
         // ---- TODO : Commenter ce bout de code ----
         $keys = array_keys($body);
         $valuesToInsert = [];
         foreach($keys as $key) {
-          if (in_array($key, ['nom', 'groupe'])) {
+          if (in_array($key, ['artiste_id', 'musique_id'])) {
             $valuesToInsert[$key] = $body[$key];
           }
         }
@@ -134,7 +134,7 @@
         }
 
         // ---- TODO : Commenter ce bout de code ----
-        if (!isset($body['id'])) {
+        if (!isset($body['artiste_id'])) {
           throw new Exception("Aucun identifiant n'a été spécifié");
         }
 
@@ -142,7 +142,7 @@
         $keys = array_keys($body);
         $valuesToUpdate = [];
         foreach($keys as $key) {
-          if (in_array($key, ['nom', 'groupe'])) {
+          if (in_array($key, ['artiste_id', 'musique_id'])) {
             $valuesToUpdate[$key] = $body[$key];
           }
         }

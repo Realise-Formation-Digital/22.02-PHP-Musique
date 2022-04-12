@@ -13,7 +13,7 @@ class ArtisteMusiqueModel extends Database
   {
     // ---- TODO : Commenter ce bout de code ----
     return $this->getMany(
-      "SELECT * FROM artiste_musique ORDER BY nom ASC LIMIT $offset, $limit",
+      "SELECT * FROM artiste_musique ORDER BY musique_id ASC LIMIT $offset, $limit",
       "ArtisteMusiqueModel"
     );
   }
