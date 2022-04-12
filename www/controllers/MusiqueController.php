@@ -197,19 +197,19 @@
     }
 
     
-    public function getTitleList() {
+    public function getArtisteTitle() {
       try {
         // ---- TODO : Commenter ce bout de code ----
         $musiqueModel = new MusiqueModel();
 
         // ---- TODO : Commenter ce bout de code ----
         $urlParams = $this->getQueryStringParams();
-        if (!isset($urlParams['artiste_id']) || !is_numeric($urlParams['artiste_id'])) {
+        if (!isset($urlParams['id']) || !is_numeric($urlParams['id'])) {
           throw new Exception("L'identifiant est incorrect ou n'a pas été spécifié");
         }
 
         // ---- TODO : Commenter ce bout de code ----
-        $musique = $musiqueModel->getSingleMusique($urlParams['artiste_id']);
+        $musique = $musiqueModel->getArtisteAndTitle ($urlParams['id']);
 
         // ---- TODO : Commenter ce bout de code ----
         $responseData = json_encode($musique);
