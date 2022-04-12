@@ -29,6 +29,7 @@ $routes = [
   "/api/style/add" => ['POST', 'StyleController', 'store'],
   "/api/style/update" => ['PUT', 'StyleController', 'update'],
   "/api/style/remove" => ['DELETE', 'StyleController', 'destroy'],
-  "/api/style_musique/get" => ['GET', 'StyleController', 'getStyleMusique' ],
+  "/api/titlestyle/get" => ['GET', 'StyleController', 'getTitleStyle' ],
+  "/api/style musique/get" => ['GET', 'StyleController', 'getStyleMusique' ],
 
 ];

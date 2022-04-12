@@ -7,7 +7,7 @@ class MusiqueModel extends Database
   public $nom;
   public $durée;
   public $album;
-  public $style_id;
+  // public $style_id;
 
   /**
    * ---- TODO : Commenter cette méthode ----
@@ -16,7 +16,7 @@ class MusiqueModel extends Database
   {
     // ---- TODO : Commenter ce bout de code ----
     return $this->getMany(
-      "SELECT * FROM musique ORDER BY nom ASC LIMIT $offset, $limit",
+      "SELECT id, nom, durée, album FROM musique ORDER BY nom ASC LIMIT $offset, $limit",
       "MusiqueModel"
     );
   }
