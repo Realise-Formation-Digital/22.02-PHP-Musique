@@ -209,7 +209,7 @@
         }
 
         // ---- TODO : Commenter ce bout de code ----
-        $musique = $musiqueModel->getArtisteAndTitle ($urlParams['id']);
+        $musique = $musiqueModel->getArtisteTitle ($urlParams['id']);
 
         // ---- TODO : Commenter ce bout de code ----
         $responseData = json_encode($musique);
