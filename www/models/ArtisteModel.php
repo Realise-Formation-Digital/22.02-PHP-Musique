@@ -88,7 +88,8 @@ class ArtisteModel extends Database
       "SELECT a.nom, a.groupe, m.nom FROM artiste a
         INNER JOIN artiste_musique am ON am.artiste_id = a.id
         INNER JOIN musique m ON m.id = am.musique_id
-        WHERE a.id = $artisteID"
+        WHERE a.id = $artisteID",
+        "ArtisteModel"
     );
   }
 

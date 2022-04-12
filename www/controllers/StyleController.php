@@ -193,6 +193,42 @@
         $this->sendOutput($strErrorDesc, ['Content-Type: application/json', $strErrorHeader]);
       }
     }
+    
+    public function getTitleStyle() {
+      try {
+        // ---- new instance ----
+        $styleModel = new StyleModel();
+
+        // ---- TODO : Commenter ce bout de code ----
+        $limit = 10;
+        $urlParams = $this->getQueryStringParams();
+        if (isset($urlParams['limit']) && is_numeric($urlParams['limit'])) {
+          $limit = $urlParams['limit'];
+        }
+
+        // ---- TODO : Commenter ce bout de code ----
+        $offset = 0;
+        $urlParams = $this->getQueryStringParams();
+        if (isset($urlParams['page']) && is_numeric($urlParams['page']) && $urlParams['page'] > 0) {
+          $offset = ($urlParams['page'] - 1) * $limit;
+        }
+
+        // ---- TODO : Commenter ce bout de code ----
+        $style = $styleModel->getTitleStyle($offset, $limit);
+
+        // ---- TODO : Commenter ce bout de code ----
+        $responseData = json_encode($style);
+
+        // ---- TODO : Commenter ce bout de code ----
+        $this->sendOutput($responseData);
+      } catch (Error $e) {
+        // ---- TODO : Commenter ce bout de code ----
+        $strErrorDesc = $e->getMessage().'Something went wrong! Please contact support.';
+        $strErrorHeader = 'HTTP/1.1 500 Internal Server Error';
+        $this->sendOutput($strErrorDesc, ['Content-Type: application/json', $strErrorHeader]);
+      }
+    }
+
 
     public function getStyleMusique() {
       try {
