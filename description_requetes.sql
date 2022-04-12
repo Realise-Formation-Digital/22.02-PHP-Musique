@@ -1,3 +1,4 @@
+                       /* Description des requêtes*/
                         /*Première fonction*/
 /*Selectionne le nom de l'artiste, le groupe de l'artiste, 
 le nom de la musique dans la table artiste*/
@@ -10,7 +11,6 @@ INNER JOIN musique m ON m.id = am.musique_id
 /*l'id de l'artiste est égale à la variable artisteID*/
 WHERE a.id = $artisteID
 
-
                         /*Deuxième fonction*/
 /*Selectionne toute la table musique */
 SELECT * FROM musique m
@@ -21,7 +21,6 @@ INNER JOIN artiste_musique am ON am.musique_id = m.id
 INNER JOIN artiste a ON a.id = am.artiste_id
 /*l'id de la musique est égale à la variable musiqueID*/
 WHERE m.id = $musiqueID
-
 
                         /*Troisième fonction*/
 /*selectionne l'id, le nom, la durée, l'album de la musique.
@@ -34,7 +33,6 @@ INNER JOIN style s ON s.id = m.style_id
 /*Trie par ordre ascendant les noms de la musique, 
 de la variable x (début) à la variable y (fin)  */
 ORDER BY m.nom ASC LIMIT $offset, $limit
-
 
                         /*Quatrième fonction*/
 /*selectionne l'id, le nom, la durée, l'album de la musique.
@@ -49,9 +47,36 @@ WHERE s.id = $styleID
 
 
 /*Teste des requêtes*/
-
+                    /*Premier teste*/
 SELECT a.nom, a.groupe, m.nom FROM artiste a
 INNER JOIN artiste_musique am ON am.artiste_id = a.id
 INNER JOIN musique m ON m.id = am.musique_id
 WHERE a.id = $artisteID
+/*Remplacer la variable artisteID par le chiffre correspondant*/
+
+                     /*Deuxième teste*/
+SELECT * FROM musique m
+INNER JOIN artiste_musique am ON am.musique_id = m.id
+INNER JOIN artiste a ON a.id = am.artiste_id
+WHERE m.id = $musiqueID
+/*Remplacer la variable musiqueID par le chiffre correspondant*/
+
+                    /*Troisième teste*/
+SELECT m.id, m.nom, m.durée, m.album, CONCAT(s.nom, '/', s.type) as
+style
+FROM musique m
+INNER JOIN style s ON s.id = m.style_id
+ORDER BY m.nom ASC LIMIT $offset, $limit
+/*Remplacer les variables $offset et $limit par des chiffres */
+
+                    /*Quatrième teste*/
+SELECT m.id, m.nom, m.durée, m.album, CONCAT(s.nom, '/', s.type) as
+style
+FROM style s
+INNER JOIN musique m ON s.id = m.style_id
+WHERE s.id = $styleID
+/*Remplacer la variable styleID par le chiffre correspondant*/
+
+
+
 
