@@ -14,6 +14,7 @@ $routes = [
   "/api/artistes/add" => ['POST', 'ArtisteController', 'store'],
   "/api/artistes/update" => ['PUT', 'ArtisteController', 'update'],
   "/api/artistes/remove" => ['DELETE', 'ArtisteController', 'destroy'],
+  "/api/artiste_groupe_musique/get" => ['GET', 'ArtisteController', 'getArtisteGroupeMusique'],
 
   "/api/musique/list" => ['GET', 'MusiqueController', 'getList'],
   "/api/musique/get" => ['GET', 'MusiqueController', 'get'],
@@ -28,7 +29,6 @@ $routes = [
   "/api/style/add" => ['POST', 'StyleController', 'store'],
   "/api/style/update" => ['PUT', 'StyleController', 'update'],
   "/api/style/remove" => ['DELETE', 'StyleController', 'destroy'],
-  
- 
-];
+  "/api/style_musique/get" => ['GET', 'StyleController', 'getStyleMusique' ],
 
+];
