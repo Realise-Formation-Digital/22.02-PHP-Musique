@@ -32,4 +32,6 @@ $routes = [
   "/api/titlestyle/get" => ['GET', 'StyleController', 'getTitleStyle' ],
   "/api/style musique/get" => ['GET', 'StyleController', 'getStyleMusique' ],
 
+  
+
 ];
