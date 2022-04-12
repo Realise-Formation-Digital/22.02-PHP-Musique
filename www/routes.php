@@ -30,7 +30,7 @@ $routes = [
   "/api/style/update" => ['PUT', 'StyleController', 'update'],
   "/api/style/remove" => ['DELETE', 'StyleController', 'destroy'],
   "/api/titlestyle/get" => ['GET', 'StyleController', 'getTitleStyle' ],
-  "/api/style musique/get" => ['GET', 'StyleController', 'getStyleMusique' ],
+  "/api/style_musique/get" => ['GET', 'StyleController', 'getStyleMusique' ],
 
   
 
