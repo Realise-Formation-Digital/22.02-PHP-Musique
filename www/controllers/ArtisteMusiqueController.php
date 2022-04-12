@@ -27,10 +27,10 @@
         }
 
         // ---- TODO : Commenter ce bout de code ----
-        $artistesMusique = $artisteMusiqueModel->getAllArtisteMusiques($offset, $limit);
+        $artisteMusique = $artisteMusiqueModel->getAllArtisteMusique($offset, $limit);
 
         // ---- TODO : Commenter ce bout de code ----
-        $responseData = json_encode($artisteMusiqus);
+        $responseData = json_encode($artisteMusique);
 
         // ---- TODO : Commenter ce bout de code ----
         $this->sendOutput($responseData);
@@ -48,7 +48,7 @@
     public function get() {
       try {
         // ---- TODO : Commenter ce bout de code ----
-        $artisteMusiqueModel = new ArtisteMusiqueModel();
+        $artisteMusiqueModel = new artisteMusiqueModel();
 
         // ---- TODO : Commenter ce bout de code ----
         $urlParams = $this->getQueryStringParams();
@@ -104,7 +104,7 @@
         }
 
         // ---- TODO : Commenter ce bout de code ----
-        $artiste = $artisteMusiqueModel->insertArtisteMusique($valuesToInsert);
+        $artisteMusique = $artisteMusiqueModel->insertArtisteMusique($valuesToInsert);
 
         // ---- TODO : Commenter ce bout de code ----
         $responseData = json_encode($artisteMusique);
@@ -148,7 +148,7 @@
         }
 
         // ---- TODO : Commenter ce bout de code ----
-        $artisteMusique = $artisteMusiqueModel->updateArtiste($valuesToUpdate, $body['id']);
+        $artisteMusique = $artisteMusiqueModel->updateArtisteMusique($valuesToUpdate, $body['id']);
 
         // ---- TODO : Commenter ce bout de code ----
         $responseData = json_encode($artisteMusique);
