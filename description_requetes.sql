@@ -1,4 +1,3 @@
-                       /* Description des requêtes*/
                         /*Première fonction*/
 /*Selectionne le nom de l'artiste, le groupe de l'artiste, 
 le nom de la musique dans la table artiste*/
@@ -9,73 +8,51 @@ INNER JOIN artiste_musique am ON am.artiste_id = a.id
 /*Joins la table musique depuis son id à la table am*/
 INNER JOIN musique m ON m.id = am.musique_id
 /*l'id de l'artiste est égale à la variable artisteID*/
+/*Pour le teste remplacer la variable artisteID par la valeur correspondante*/
 WHERE a.id = $artisteID
+
 
                         /*Deuxième fonction*/
 /*Selectionne toute la table musique */
 SELECT * FROM musique m
-/*Joins la table artiste_musique à la table am.musique_id 
+/*Joins la table artiste_musique à la table am.musique
 dont l'id est m.id*/
 INNER JOIN artiste_musique am ON am.musique_id = m.id
-/*Joins la table artiste depuis son id à la table am.artiste_id*/
+/*Joins la table artiste depuis son id à la table am.artiste*/
 INNER JOIN artiste a ON a.id = am.artiste_id
 /*l'id de la musique est égale à la variable musiqueID*/
+/*Pour le teste remplacer la variable musiqueID par la valeur correspondante*/
 WHERE m.id = $musiqueID
+
 
                         /*Troisième fonction*/
 /*selectionne l'id, le nom, la durée, l'album de la musique.
-Ensuite, regroupe en une chaîne (nom, '/', type) le style de la table musique.*/
+Ensuite, regroupe en une chaîne les élements concat comme 
+style de la table musique.*/
 SELECT m.id, m.nom, m.durée, m.album, CONCAT(s.nom, '/', s.type) as 
 style 
 FROM musique m
-/*Joins la table style depuis son id à la ligne m.style_id*/
+/*Joins la table style depuis son id au style de musique*/
 INNER JOIN style s ON s.id = m.style_id
 /*Trie par ordre ascendant les noms de la musique, 
 de la variable x (début) à la variable y (fin)  */
+/*Pour le teste remplacer les variables offset et limit 
+par les valeurs correspondantes*/
 ORDER BY m.nom ASC LIMIT $offset, $limit
+
 
                         /*Quatrième fonction*/
 /*selectionne l'id, le nom, la durée, l'album de la musique.
-Ensuite, regroupe en une chaîne (nom, '/', type) le style de la table style.*/
+Ensuite, regroupe en une chaîne les élements concat comme 
+style de la table style.*/
 SELECT m.id, m.nom, m.durée, m.album, CONCAT(s.nom, '/', s.type) as
 style
 FROM style s
-/*Joins la table musique depuis son id à la ligne m.style_id*/
+/*Joins la table musique depuis son id au style de musique*/
 INNER JOIN musique m ON s.id = m.style_id
 /*L'id du style est égale à la variable styleID*/
+/*Pour le teste remplacer la variable styleID par la valeur correspondante*/
 WHERE s.id = $styleID
-
-
-/*Teste des requêtes*/
-                    /*Premier teste*/
-SELECT a.nom, a.groupe, m.nom FROM artiste a
-INNER JOIN artiste_musique am ON am.artiste_id = a.id
-INNER JOIN musique m ON m.id = am.musique_id
-WHERE a.id = $artisteID
-/*Remplacer la variable artisteID par le chiffre correspondant*/
-
-                     /*Deuxième teste*/
-SELECT * FROM musique m
-INNER JOIN artiste_musique am ON am.musique_id = m.id
-INNER JOIN artiste a ON a.id = am.artiste_id
-WHERE m.id = $musiqueID
-/*Remplacer la variable musiqueID par le chiffre correspondant*/
-
-                    /*Troisième teste*/
-SELECT m.id, m.nom, m.durée, m.album, CONCAT(s.nom, '/', s.type) as
-style
-FROM musique m
-INNER JOIN style s ON s.id = m.style_id
-ORDER BY m.nom ASC LIMIT $offset, $limit
-/*Remplacer les variables $offset et $limit par des chiffres */
-
-                    /*Quatrième teste*/
-SELECT m.id, m.nom, m.durée, m.album, CONCAT(s.nom, '/', s.type) as
-style
-FROM style s
-INNER JOIN musique m ON s.id = m.style_id
-WHERE s.id = $styleID
-/*Remplacer la variable styleID par le chiffre correspondant*/
 
 
 
