@@ -5,7 +5,7 @@ require_once __DIR__ . "/controllers/BaseController.php";
 require_once __DIR__ . "/controllers/ArtisteController.php";
 require_once __DIR__ . "/controllers/MusiqueController.php";
 require_once __DIR__ . "/controllers/StyleController.php";
-// require_once __DIR__ . "/controllers/ArtisteMusiqueController.php";
+require_once __DIR__ . "/controllers/ArtisteMusiqueController.php";
 
 // ---- TODO : Commenter ce bout de code ----
 $routes = [
@@ -23,7 +23,6 @@ $routes = [
   "/api/musique/update" => ['PUT', 'MusiqueController', 'update'],
   "/api/musique/remove" => ['DELETE', 'MusiqueController', 'destroy'],
   
-
   "/api/style/list" => ['GET', 'StyleController', 'getList'],
   "/api/style/get" => ['GET', 'StyleController', 'get'],
   "/api/style/add" => ['POST', 'StyleController', 'store'],
@@ -32,6 +31,9 @@ $routes = [
   "/api/titlestyle/list" => ['GET', 'StyleController', 'getTitleStyle' ],
   "/api/stylemusique/get" => ['GET', 'StyleController', 'getStyleMusique' ],
 
+  "/api/artistemusique/list" => ['GET', 'ArtisteMusiqueController', 'getAllArtisteMusique' ],
+  "/api/artistemusique/update" => ['PUT', 'ArtisteMusiqueController', 'updateArtisteMusique' ],
+  "/api/artistemusique/delete" => ['DELETE', 'ArtisteMusiqueController', 'deleteArtisteMusique' ],
   
 
 ];

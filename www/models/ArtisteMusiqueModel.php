@@ -5,7 +5,7 @@ class ArtisteMusiqueModel extends Database
 {
   public $artiste_id;
   public $musique_id;
-  
+
   /**
    * ---- TODO : Commenter cette méthode ----
    */
@@ -50,11 +50,43 @@ class ArtisteMusiqueModel extends Database
   /**
    * ---- TODO : Commenter cette méthode ----
    */
+  // public function updateArtisteMusique($array, $artiste_id)
+  // {
+  //   // ---- TODO : Commenter ce bout de code ----
+  //   $values_array = [];
+  //   foreach($array as $key => $value) {
+  //     $values_array[] = "$key = '$value'";
+  //   }
+  //   $values = implode(",", array_values($values_array));
+
+  //   // ---- TODO : Commenter ce bout de code ----
+  //   return $this->update(
+  //     "UPDATE artiste_musique SET $values WHERE artiste_id = $artiste_id",
+  //     "ArtisteMusiqueModel",
+  //     "SELECT artiste_id FROM artiste_musique WHERE artiste_id = $artiste_id",
+  //     "SELECT * FROM artiste_musique WHERE artiste_id = $artiste_id"
+  //   );
+  // }
+
+  /**
+   * ---- TODO : Commenter cette méthode ----
+   */
+  // public function deleteArtisteMusique($artiste_id)
+  // {
+  //   // ---- TODO : Commenter ce bout de code ----
+  //   return $this->delete(
+  //     "DELETE FROM artiste_musique WHERE artiste_id=$artiste_id",
+  //     "SELECT artiste_id FROM artiste_musique WHERE artiste_id=$artiste_id"
+  //   );
+  // }
+
+
+  //Patrick
   public function updateArtisteMusique($array, $artiste_id)
   {
     // ---- TODO : Commenter ce bout de code ----
     $values_array = [];
-    foreach($array as $key => $value) {
+    foreach ($array as $key => $value) {
       $values_array[] = "$key = '$value'";
     }
     $values = implode(",", array_values($values_array));
@@ -68,16 +100,11 @@ class ArtisteMusiqueModel extends Database
     );
   }
 
-  /**
-   * ---- TODO : Commenter cette méthode ----
-   */
-  public function deleteArtisteMusique($artiste_id)
+  public function deleteArtisteMusique($artiste_id, $musique_id)
   {
     // ---- TODO : Commenter ce bout de code ----
     return $this->delete(
-      "DELETE FROM artiste_musique WHERE artiste_id=$artiste_id",
-      "SELECT artiste_id FROM artiste_musique WHERE artiste_id=$artiste_id"
+      "DELETE FROM `artiste_musique` am WHERE artiste_id=$artiste_id AND musique_id=$musique_id",
     );
   }
-
 }
