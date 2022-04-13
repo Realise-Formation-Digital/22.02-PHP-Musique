@@ -7,14 +7,17 @@ require_once __DIR__ . "/controllers/MusiqueController.php";
 require_once __DIR__ . "/controllers/StyleController.php";
 require_once __DIR__ . "/controllers/ArtisteMusiqueController.php";
 
-// ---- TODO : Commenter ce bout de code ----
+// ---- Liens des routes en URL et [action, page du controller, méthode de la fonction] ----
 $routes = [
   "/api/artistes/list" => ['GET', 'ArtisteController', 'getList'],
   "/api/artistes/get" => ['GET', 'ArtisteController', 'get'],
   "/api/artistes/add" => ['POST', 'ArtisteController', 'store'],
   "/api/artistes/update" => ['PUT', 'ArtisteController', 'update'],
   "/api/artistes/remove" => ['DELETE', 'ArtisteController', 'destroy'],
-  "/api/artiste_groupe_musique/get" => ['GET', 'ArtisteController', 'getArtisteGroupeMusique'],
+  // artisteID
+  "/api/artistegroupemusique/get" => ['GET', 'ArtisteController', 'getArtisteGroupeMusique'],
+  // artisteID
+  "/api/artistemusique/add" => ['POST', 'ArtisteController', 'addMusiqueArtiste'],
 
   "/api/musique/list" => ['GET', 'MusiqueController', 'getList'],
   "/api/musique/get" => ['GET', 'MusiqueController', 'get'],
@@ -22,18 +25,13 @@ $routes = [
   "/api/musique/add" => ['POST', 'MusiqueController', 'store'],
   "/api/musique/update" => ['PUT', 'MusiqueController', 'update'],
   "/api/musique/remove" => ['DELETE', 'MusiqueController', 'destroy'],
-  
+
   "/api/style/list" => ['GET', 'StyleController', 'getList'],
   "/api/style/get" => ['GET', 'StyleController', 'get'],
   "/api/style/add" => ['POST', 'StyleController', 'store'],
   "/api/style/update" => ['PUT', 'StyleController', 'update'],
   "/api/style/remove" => ['DELETE', 'StyleController', 'destroy'],
   "/api/titlestyle/list" => ['GET', 'StyleController', 'getTitleStyle' ],
+  // styleID
   "/api/stylemusique/get" => ['GET', 'StyleController', 'getStyleMusique' ],
-
-  "/api/artistemusique/list" => ['GET', 'ArtisteMusiqueController', 'getAllArtisteMusique' ],
-  "/api/artistemusique/update" => ['PUT', 'ArtisteMusiqueController', 'updateArtisteMusique' ],
-  "/api/artistemusique/delete" => ['DELETE', 'ArtisteMusiqueController', 'deleteArtisteMusique' ],
-  
-
 ];

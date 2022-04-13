@@ -92,4 +92,32 @@ class ArtisteModel extends Database
     );
   }
 
+  // 
+  public function ajoutMusiqueArtiste($valArtiste, $valMusique,) {
+    return $this->addRelation(
+      'artiste_musique', 'artiste_id', 'musique_id', 
+
+      "INSERT INTO artiste_musique(artiste_id, musique_id)
+        VALUES ($valArtiste, $valMusique)"
+
+    
+    );
+  }
+
+  public function supprimeMusiqueArtiste($tableName, $id1Name, $id2Name, $id1Value, $id2Value) {
+    return $this->removeRelation(
+      'artiste_musique', 'artiste_id', 'musique_id',
+
+     
+
+    );
+  }
+
 }
+
+
+// "SELECT * FROM artiste a
+    //   INNER JOIN artiste_musique am on am.artiste_id = a.id
+    //   INNER JOIN musique m ON m.id = am.musique_id
+    //   WHERE a.id = $artisteID"
+
