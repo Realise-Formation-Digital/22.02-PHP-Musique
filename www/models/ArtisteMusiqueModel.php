@@ -100,11 +100,11 @@ class ArtisteMusiqueModel extends Database
     );
   }
 
-  public function deleteArtisteMusique($artiste_id, $musique_id)
+  public function deleteArtisteMusique($artiste_id)
   {
     // ---- TODO : Commenter ce bout de code ----
     return $this->delete(
-      "DELETE FROM `artiste_musique` am WHERE artiste_id=$artiste_id AND musique_id=$musique_id",
+      "DELETE FROM `artiste_musique` am WHERE artiste_id=$artiste_id",
     );
   }
 }

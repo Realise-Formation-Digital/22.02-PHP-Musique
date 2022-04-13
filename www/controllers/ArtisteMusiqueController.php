@@ -277,7 +277,7 @@
 
         // ---- TODO : Commenter ce bout de code ----
         $urlParams = $this->getQueryStringParams();
-        if (!isset($urlParams['artiste_id']) || !is_numeric($urlParams['artiste_id']) || !isset($urlParams['musique_id']) || !is_numeric($urlParams['musique_id'])) {
+        if (!isset($urlParams['artiste_id']) || !is_numeric($urlParams['artiste_id'])) {
           throw new Exception("L'identifiant est incorrect ou n'a pas été spécifié");
         }
 

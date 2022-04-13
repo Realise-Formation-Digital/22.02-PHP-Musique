@@ -202,14 +202,14 @@
         // ---- TODO : Commenter ce bout de code ----
         $musiqueModel = new MusiqueModel();
 
-        // ---- TODO : Commenter ce bout de code ----
+        // Conditions pour voir si l'id existe et qu'il est numérique
         $urlParams = $this->getQueryStringParams();
         if (!isset($urlParams['id']) || !is_numeric($urlParams['id'])) {
           throw new Exception("L'identifiant est incorrect ou n'a pas été spécifié");
         }
 
         // ---- TODO : Commenter ce bout de code ----
-        $musique = $musiqueModel->getArtisteTitle ($urlParams['id']);
+        $musique = $musiqueModel->getArtisteTitle($urlParams['id']);
 
         // ---- TODO : Commenter ce bout de code ----
         $responseData = json_encode($musique);
