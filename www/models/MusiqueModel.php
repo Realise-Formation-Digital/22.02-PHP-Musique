@@ -91,7 +91,6 @@ class MusiqueModel extends Database
       WHERE m.id = $musiqueID",
       "MusiqueModel"
     );
-
   }
 
 }

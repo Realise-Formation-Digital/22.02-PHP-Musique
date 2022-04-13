@@ -193,6 +193,8 @@
       }
     }
 
+// Xavier 
+
 
     public function getArtisteGroupeMusique() {
       try {
@@ -220,5 +222,46 @@
         $this->sendOutput($strErrorDesc, ['Content-Type: application/json', $strErrorHeader]);
       }
     }
+
+
+    public function addMusiqueArtiste() {
+
+      try {
+        // ---- Création d'un objet en instanciant musiqueModel ----
+        $musiqueModel = new MusiqueModel();
+
+        // ---- Vérification si body vide ----
+        $body = $this->getBody();
+        if (!$body) {
+          throw new Exception("Le champ n'est pas valide");
+        }
+
+        // ---- Vérification si artiste id est spécifié ----
+        if (!isset($body['artiste_id'])) {
+          
+          throw new Exception("Aucun artiste n'a été spécifié");
+        }
+        // ---- Vérification si artiste id est spécifié ----
+        if (!isset($body['musique_id'])) {
+          throw new Exception("Aucune musique n'a été spécifiée");
+        }
+
+        // ---- Variable musiqueArtiste = à la référence de la fonction ajoutMusiqueArtiste qui contient dans $body les valeurs renvoyées aux variables
+          // $id1Value, $id2Value dans la fonction ----
+        $musiqueArtiste = $musiqueModel->ajoutMusiqueArtiste($body['artiste_id'], $body['musique_id']);
+
+        // ---- Change les string en objet Json ----
+        $responseData = json_encode($musiqueArtiste);
+
+        // ---- TODO : Commenter ce bout de code ----
+        $this->sendOutput($responseData);
+      } catch (Error $e) {
+        // ---- TODO : Commenter ce bout de code ----
+        $strErrorDesc = $e->getMessage().'Something went wrong! Please contact support.';
+        $strErrorHeader = 'HTTP/1.1 500 Internal Server Error';
+        $this->sendOutput($strErrorDesc, ['Content-Type: application/json', $strErrorHeader]);
+      }
+    }
+
 
   }
