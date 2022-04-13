@@ -5,7 +5,7 @@
   {
 
     /**
-     * ---- TODO : Commenter cette méthode ----
+     * Déclaration des fonctions
      */
     public function getList() {
       try {
@@ -86,7 +86,7 @@
           throw new Exception("L'identifiant est incorrect ou n'a pas été spécifié");
         }
 
-        // ---- TODO : Commenter ce bout de code ----
+        // Conditions pour voir si les valeurs du body existent
         if (!isset($body['nom'])) {
           throw new Exception("Aucun nom n'a été spécifié");
         }
